@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neon Habit - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Space_Grotesk:wght@300;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#a37cfa",
+                        "on-surface": "#ffffff",
+                        "inverse-surface": "#fcf8f8",
+                        "secondary-fixed-dim": "#3eee8c",
+                        "surface-container-highest": "#262626",
+                        "surface-bright": "#2c2c2c",
+                        "secondary": "#52fd98",
+                        "on-error": "#490013",
+                        "on-tertiary-fixed-variant": "#642f00",
+                        "on-primary-fixed": "#000000",
+                        "inverse-primary": "#6d45c1",
+                        "on-surface-variant": "#adaaaa",
+                        "on-tertiary-fixed": "#341500",
+                        "on-secondary-fixed": "#004824",
+                        "on-tertiary": "#652f00",
+                        "on-error-container": "#ffb2b9",
+                        "surface-variant": "#262626",
+                        "tertiary-fixed": "#ff9f5a",
+                        "inverse-on-surface": "#565554",
+                        "surface-tint": "#bc9eff",
+                        "error-dim": "#d73357",
+                        "surface-container": "#1a1919",
+                        "on-secondary-container": "#e3ffe5",
+                        "secondary-dim": "#3eee8c",
+                        "outline-variant": "#494847",
+                        "surface": "#0e0e0e",
+                        "on-primary-container": "#2d006d",
+                        "tertiary-container": "#ff9f5a",
+                        "outline": "#777575",
+                        "error-container": "#a70138",
+                        "on-tertiary-container": "#572800",
+                        "secondary-fixed": "#52fd98",
+                        "primary-dim": "#ad89ff",
+                        "on-secondary-fixed-variant": "#006836",
+                        "tertiary-fixed-dim": "#ef924e",
+                        "tertiary-dim": "#ef924e",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#b08dff",
+                        "surface-container-low": "#131313",
+                        "secondary-container": "#006d39",
+                        "on-background": "#ffffff",
+                        "error": "#ff6e84",
+                        "tertiary": "#ffb37f",
+                        "primary-container": "#b08dff",
+                        "background": "#0e0e0e",
+                        "on-secondary": "#005d30",
+                        "surface-container-high": "#201f1f",
+                        "on-primary-fixed-variant": "#380085",
+                        "on-primary": "#3b008a",
+                        "surface-dim": "#0e0e0e",
+                        "primary": "#bc9eff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 25, 25, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(73, 72, 71, 0.15);
+        }
+        .neon-glow-primary { box-shadow: 0 10px 30px -5px rgba(188, 158, 255, 0.12); }
+        .neon-glow-secondary { box-shadow: 0 10px 30px -5px rgba(82, 253, 152, 0.12); }
+        .neon-glow-tertiary { box-shadow: 0 10px 30px -5px rgba(255, 179, 127, 0.12); }
+        .neon-bar-glow { box-shadow: 0 0 15px rgba(82, 253, 152, 0.5); }
+        
+        /* Hide scrollbars */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary-container min-h-screen">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">insights</span>
+<h1 class="font-headline font-bold text-xl tracking-tight">Analytics</h1>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</header>
+<main class="pt-24 pb-12 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Habit Carousel Selector -->
+<section class="flex flex-col items-center gap-4">
+<div class="flex items-center justify-between w-full glass-panel p-4 rounded-3xl">
+<button class="text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="flex flex-col items-center gap-2">
+<div class="flex items-center gap-3">
+<span class="text-2xl">🏃</span>
+<h2 class="font-headline font-bold text-lg">Morning Run</h2>
+</div>
+<div class="flex gap-1.5">
+<div class="w-4 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+<button class="text-on-surface-variant active:scale-90 transition-transform">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60">1 of 5 habits</span>
+</section>
+<!-- Key Stats -->
+<section class="grid grid-cols-3 gap-3">
+<!-- Current Streak -->
+<div class="glass-panel p-4 rounded-[1.5rem] flex flex-col items-center justify-center text-center border-tertiary/10">
+<span class="material-symbols-outlined text-tertiary text-xl mb-1" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-headline font-extrabold text-2xl">12</span>
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-1">current streak</span>
+</div>
+<!-- Best Streak -->
+<div class="glass-panel p-4 rounded-[1.5rem] flex flex-col items-center justify-center text-center border-primary/10">
+<span class="material-symbols-outlined text-primary text-xl mb-1" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-headline font-extrabold text-2xl">28</span>
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-1">best streak</span>
+</div>
+<!-- Total Completions -->
+<div class="glass-panel p-4 rounded-[1.5rem] flex flex-col items-center justify-center text-center border-secondary/10">
+<span class="material-symbols-outlined text-secondary text-xl mb-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-headline font-extrabold text-2xl">156</span>
+<span class="font-label text-[9px] uppercase tracking-widest text-on-surface-variant mt-1">completions</span>
+</div>
+</section>
+<!-- Trend Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">trending_up</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Trend</h3>
+</div>
+<span class="bg-secondary/10 border border-secondary/20 px-3 py-1 rounded-full text-[9px] font-label text-secondary uppercase tracking-widest">30 days</span>
+</div>
+<div class="glass-panel p-6 rounded-[1.5rem] h-52 relative overflow-hidden flex items-end border-white/5">
+<!-- Refined Lean SVG Line Chart -->
+<svg class="w-full h-full absolute inset-0 pt-10 px-4" preserveaspectratio="none" viewbox="0 0 100 40">
+<defs>
+<lineargradient id="trendGradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#52fd98" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#52fd98" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,35 C5,34 10,30 15,32 S25,25 30,28 S40,20 45,22 S55,15 60,18 S70,10 75,12 S90,5 100,5 L100,40 L0,40 Z" fill="url(#trendGradient)"></path>
+<path d="M0,35 C5,34 10,30 15,32 S25,25 30,28 S40,20 45,22 S55,15 60,18 S70,10 75,12 S90,5 100,5" fill="none" stroke="#52fd98" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Terminal point -->
+<circle class="animate-pulse shadow-[0_0_10px_#52fd98]" cx="100" cy="5" fill="#52fd98" r="2.5"></circle>
+</svg>
+<div class="w-full flex justify-between text-[9px] font-label text-on-surface-variant/40 relative z-10">
+<span>1 OCT</span>
+<span>15 OCT</span>
+<span>30 OCT</span>
+</div>
+</div>
+</section>
+<!-- Best Days Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_view_week</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Best Days</h3>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[10px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label text-[9px] text-secondary font-bold">Tuesday</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-[1.5rem] flex justify-between items-end h-44">
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">78%</span>
+<div class="w-full max-w-[40px] h-20 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">M</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-secondary font-bold">91%</span>
+<div class="w-full max-w-[40px] h-24 bg-secondary rounded-xl neon-bar-glow"></div>
+<span class="font-label text-[10px] text-secondary font-bold">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">82%</span>
+<div class="w-full max-w-[40px] h-22 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">W</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">75%</span>
+<div class="w-full max-w-[40px] h-18 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">T</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">68%</span>
+<div class="w-full max-w-[40px] h-16 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">F</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">45%</span>
+<div class="w-full max-w-[40px] h-10 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">S</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">52%</span>
+<div class="w-full max-w-[40px] h-12 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">S</span>
+</div>
+</div>
+</section>
+<!-- Insights -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-sm text-secondary">lightbulb</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Insights</h3>
+</div>
+<div class="space-y-3">
+<div class="glass-panel p-4 rounded-3xl flex items-center gap-4 border-l-4 border-tertiary shadow-sm">
+<div class="w-10 h-10 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm">12 day streak</h4>
+<p class="text-xs text-on-surface-variant mt-0.5">Great consistency! 16 more days to beat your record.</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-3xl flex items-center gap-4 border-l-4 border-secondary shadow-sm">
+<div class="w-10 h-10 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm">Tuesdays are your day</h4>
+<p class="text-xs text-on-surface-variant mt-0.5">91% completion rate on Tuesdays.</p>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-3xl flex items-center gap-4 border-l-4 border-primary/40 shadow-sm">
+<div class="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm">Good progress</h4>
+<p class="text-xs text-on-surface-variant mt-0.5">78% completion rate. Keep pushing!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Monthly History Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-center px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_month</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Monthly History</h3>
+</div>
+<span class="font-label text-[9px] text-on-surface-variant/60 uppercase tracking-widest">5 months</span>
+</div>
+<div class="glass-panel p-6 rounded-[1.5rem] flex justify-between items-end h-44">
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">65%</span>
+<div class="w-full max-w-[48px] h-16 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">Sep</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">78%</span>
+<div class="w-full max-w-[48px] h-20 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">Oct</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">82%</span>
+<div class="w-full max-w-[48px] h-22 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">Nov</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-on-surface-variant/60">71%</span>
+<div class="w-full max-w-[48px] h-18 bg-white/5 rounded-xl border border-white/10"></div>
+<span class="font-label text-[10px] text-on-surface-variant">Dec</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1">
+<span class="font-label text-[10px] text-secondary font-bold">89%</span>
+<div class="w-full max-w-[48px] h-24 bg-secondary rounded-xl neon-bar-glow"></div>
+<span class="font-label text-[10px] text-secondary font-bold">Jan</span>
+</div>
+</div>
+</section>
+<!-- Streak History -->
+<section class="space-y-4 pb-8">
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-sm text-secondary">emoji_events</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Streak History</h3>
+</div>
+<div class="glass-panel p-6 rounded-[1.5rem] space-y-5">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="font-label text-[9px] text-on-surface-variant w-10 text-right">Oct 3</span>
+<div class="flex-1 bg-surface-variant/30 h-6 rounded-lg relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-y-0 left-0 bg-secondary/30 w-full"></div>
+<span class="relative font-label text-[10px] text-secondary font-bold">28 days</span>
+</div>
+<span class="font-label text-[9px] text-on-surface-variant w-10">Oct 30</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label text-[9px] text-on-surface-variant w-10 text-right">Nov 12</span>
+<div class="flex-1 bg-surface-variant/30 h-6 rounded-lg relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-y-0 left-0 bg-white/5 w-[75%]"></div>
+<span class="relative font-label text-[10px] text-on-surface-variant">21 days</span>
+</div>
+<span class="font-label text-[9px] text-on-surface-variant w-10">Dec 2</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label text-[9px] text-on-surface-variant w-10 text-right">Sep 1</span>
+<div class="flex-1 bg-surface-variant/30 h-6 rounded-lg relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-y-0 left-0 bg-white/5 w-[50%]"></div>
+<span class="relative font-label text-[10px] text-on-surface-variant">14 days</span>
+</div>
+<span class="font-label text-[9px] text-on-surface-variant w-10">Sep 14</span>
+</div>
+</div>
+<p class="text-[10px] text-on-surface-variant/50 text-center font-label italic">Your consecutive day runs (most recent first)</p>
+</div>
+</section>
+</main>
+</body></html>

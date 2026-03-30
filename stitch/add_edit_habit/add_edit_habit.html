@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Habit | Neon-Glass Tracker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#ffb37f",
+                        "surface-container-highest": "#262626",
+                        "on-secondary-container": "#e3ffe5",
+                        "tertiary-dim": "#ef924e",
+                        "secondary-container": "#006d39",
+                        "on-surface-variant": "#adaaaa",
+                        "on-secondary-fixed": "#004824",
+                        "on-error-container": "#ffb2b9",
+                        "primary-fixed-dim": "#a37cfa",
+                        "background": "#0e0e0e",
+                        "tertiary-fixed-dim": "#ef924e",
+                        "secondary-dim": "#3eee8c",
+                        "on-primary-container": "#2d006d",
+                        "secondary-fixed": "#52fd98",
+                        "error": "#ff6e84",
+                        "surface": "#0e0e0e",
+                        "surface-container-low": "#131313",
+                        "inverse-surface": "#fcf8f8",
+                        "primary": "#bc9eff",
+                        "surface-dim": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#642f00",
+                        "error-container": "#a70138",
+                        "on-primary": "#3b008a",
+                        "inverse-primary": "#6d45c1",
+                        "on-tertiary": "#652f00",
+                        "error-dim": "#d73357",
+                        "tertiary-container": "#ff9f5a",
+                        "primary-dim": "#ad89ff",
+                        "surface-bright": "#2c2c2c",
+                        "inverse-on-surface": "#565554",
+                        "secondary-fixed-dim": "#3eee8c",
+                        "on-error": "#490013",
+                        "on-secondary-fixed-variant": "#006836",
+                        "surface-container-high": "#201f1f",
+                        "on-background": "#ffffff",
+                        "on-secondary": "#005d30",
+                        "on-tertiary-fixed": "#341500",
+                        "surface-tint": "#bc9eff",
+                        "on-primary-fixed": "#000000",
+                        "surface-container": "#1a1919",
+                        "surface-container-lowest": "#000000",
+                        "surface-variant": "#262626",
+                        "primary-fixed": "#b08dff",
+                        "secondary": "#52fd98",
+                        "on-tertiary-container": "#572800",
+                        "on-surface": "#ffffff",
+                        "on-primary-fixed-variant": "#380085",
+                        "tertiary-fixed": "#ff9f5a",
+                        "outline": "#777575",
+                        "outline-variant": "#494847",
+                        "primary-container": "#b08dff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(73, 72, 71, 0.3);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 20px rgba(188, 158, 255, 0.3);
+        }
+        .neon-glow-secondary {
+            box-shadow: 0 0 20px rgba(82, 253, 152, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 h-16 shadow-[0_8px_32px_0_rgba(188,158,255,0.08)]">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-2xl" data-icon="close">close</span>
+</button>
+<h1 class="font-manrope font-bold text-xl tracking-tight text-on-surface">New Habit</h1>
+<button class="text-primary font-bold font-label text-sm uppercase tracking-widest hover:text-primary-dim transition-colors active:scale-95 duration-200">
+            Save
+        </button>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto space-y-10">
+<!-- Icon Selector -->
+<section class="flex flex-col items-center justify-center space-y-4">
+<div class="relative group">
+<div class="absolute inset-0 bg-primary opacity-20 blur-2xl rounded-full scale-110"></div>
+<div class="relative w-24 h-24 rounded-3xl glass-panel flex items-center justify-center neon-glow-primary active:scale-95 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-primary fill-icon" data-icon="music_note">music_note</span>
+</div>
+</div>
+<p class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Tap to change icon</p>
+</section>
+<!-- Form Input -->
+<section class="space-y-3">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant ml-1">Habit Name *</label>
+<div class="relative group">
+<input class="w-full h-14 bg-surface-container-highest border-none rounded-2xl px-5 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-1 focus:ring-primary/50 transition-all font-medium" placeholder="What habit do you want to build?" type="text"/>
+</div>
+</section>
+<!-- Color Picker -->
+<section class="space-y-4">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant ml-1">Choose Theme</label>
+<div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
+<!-- Swatches -->
+<button class="w-10 h-10 rounded-full bg-error flex-shrink-0 active:scale-90 transition-transform"></button>
+<button class="w-10 h-10 rounded-full bg-tertiary flex-shrink-0 active:scale-90 transition-transform"></button>
+<button class="w-10 h-10 rounded-full bg-secondary-container flex-shrink-0 active:scale-90 transition-transform"></button>
+<button class="w-12 h-12 rounded-full bg-primary flex-shrink-0 active:scale-90 transition-transform ring-4 ring-primary/20 flex items-center justify-center neon-glow-primary">
+<span class="material-symbols-outlined text-on-primary text-xl font-bold" data-icon="check">check</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-secondary flex-shrink-0 active:scale-90 transition-transform"></button>
+<!-- More button -->
+<button class="h-10 px-4 rounded-full glass-panel flex items-center justify-center gap-1 active:scale-90 transition-transform">
+<span class="font-label text-xs font-bold text-on-surface-variant">+30</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Habit Type -->
+<section class="space-y-4">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant ml-1">Habit Type</label>
+<div class="grid grid-cols-2 gap-4">
+<button class="h-16 rounded-2xl glass-panel border-2 border-secondary/50 flex items-center justify-center gap-3 active:scale-95 transition-all bg-secondary/10">
+<span class="material-symbols-outlined text-secondary fill-icon" data-icon="check_circle">check_circle</span>
+<span class="font-bold text-sm">Checkmark</span>
+</button>
+<button class="h-16 rounded-2xl glass-panel flex items-center justify-center gap-3 active:scale-95 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+<span class="font-bold text-sm">Time Tracked</span>
+</button>
+</div>
+</section>
+<!-- Goal Frequency Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<div class="space-y-1">
+<h3 class="font-bold text-lg">Completion Target</h3>
+<p class="text-xs text-on-surface-variant">Set a goal for this habit</p>
+</div>
+<!-- Toggle Switch -->
+<button class="w-12 h-6 bg-secondary-container rounded-full relative flex items-center px-1 neon-glow-secondary">
+<div class="absolute right-1 w-4 h-4 bg-on-secondary-container rounded-full"></div>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Daily Card -->
+<div class="p-5 rounded-3xl glass-panel space-y-2 opacity-50 active:scale-95 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="calendar_today">calendar_today</span>
+<p class="font-bold text-sm">Daily</p>
+</div>
+<!-- Weekly Card -->
+<div class="p-5 rounded-3xl glass-panel border-2 border-secondary/50 space-y-2 active:scale-95 transition-all cursor-pointer bg-secondary/5">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary" data-icon="event_repeat">event_repeat</span>
+<span class="material-symbols-outlined text-secondary text-sm fill-icon" data-icon="check_circle">check_circle</span>
+</div>
+<p class="font-bold text-sm">Weekly</p>
+</div>
+</div>
+<!-- Counter Selector -->
+<div class="p-6 rounded-3xl glass-panel flex justify-between items-center">
+<div>
+<p class="font-bold">Days per week</p>
+<p class="text-xs text-on-surface-variant">Recommended: 3 days</p>
+</div>
+<div class="flex items-center gap-4 bg-secondary-container/30 p-1.5 rounded-2xl border border-secondary/20">
+<button class="w-8 h-8 rounded-xl bg-surface-container flex items-center justify-center hover:bg-surface-bright transition-colors active:scale-90">
+<span class="material-symbols-outlined text-secondary" data-icon="remove">remove</span>
+</button>
+<span class="font-headline font-extrabold text-xl w-6 text-center text-secondary">1</span>
+<button class="w-8 h-8 rounded-xl bg-surface-container flex items-center justify-center hover:bg-surface-bright transition-colors active:scale-90">
+<span class="material-symbols-outlined text-secondary" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Advanced Options Button -->
+<button class="w-full h-14 rounded-2xl glass-panel flex items-center justify-between px-6 active:scale-[0.98] transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="tune">tune</span>
+<span class="font-bold text-sm">Advanced Options</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+</button>
+</main>
+<!-- Bottom Navigation Mock (Only if needed, suppressed for Focused Task) -->
+<!-- The prompt implies this is a modal/task screen, so standard BottomNavBar is suppressed per rules. -->
+<!-- Floating Footer Action (Mobile optimized) -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background via-background/90 to-transparent">
+<button class="w-full h-16 bg-gradient-to-r from-primary to-primary-container rounded-full flex items-center justify-center gap-3 shadow-[0_10px_30px_-5px_rgba(188,158,255,0.4)] active:scale-95 transition-all group">
+<span class="font-headline font-bold text-on-primary tracking-wide">Create Habit</span>
+<span class="material-symbols-outlined text-on-primary group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</body></html>

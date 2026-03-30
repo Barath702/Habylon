@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulse Habit Tracker - Time Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#ffb37f",
+                        "surface-container-highest": "#262626",
+                        "on-secondary-container": "#e3ffe5",
+                        "tertiary-dim": "#ef924e",
+                        "secondary-container": "#006d39",
+                        "on-surface-variant": "#adaaaa",
+                        "on-secondary-fixed": "#004824",
+                        "on-error-container": "#ffb2b9",
+                        "primary-fixed-dim": "#a37cfa",
+                        "background": "#0e0e0e",
+                        "tertiary-fixed-dim": "#ef924e",
+                        "secondary-dim": "#3eee8c",
+                        "on-primary-container": "#2d006d",
+                        "secondary-fixed": "#52fd98",
+                        "error": "#ff6e84",
+                        "surface": "#0e0e0e",
+                        "surface-container-low": "#131313",
+                        "inverse-surface": "#fcf8f8",
+                        "primary": "#bc9eff",
+                        "surface-dim": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#642f00",
+                        "error-container": "#a70138",
+                        "on-primary": "#3b008a",
+                        "inverse-primary": "#6d45c1",
+                        "on-tertiary": "#652f00",
+                        "error-dim": "#d73357",
+                        "tertiary-container": "#ff9f5a",
+                        "primary-dim": "#ad89ff",
+                        "surface-bright": "#2c2c2c",
+                        "inverse-on-surface": "#565554",
+                        "secondary-fixed-dim": "#3eee8c",
+                        "on-error": "#490013",
+                        "on-secondary-fixed-variant": "#006836",
+                        "surface-container-high": "#201f1f",
+                        "on-background": "#ffffff",
+                        "on-secondary": "#005d30",
+                        "on-tertiary-fixed": "#341500",
+                        "surface-tint": "#bc9eff",
+                        "on-primary-fixed": "#000000",
+                        "surface-container": "#1a1919",
+                        "surface-container-lowest": "#000000",
+                        "surface-variant": "#262626",
+                        "primary-fixed": "#b08dff",
+                        "secondary": "#52fd98",
+                        "on-tertiary-container": "#572800",
+                        "on-surface": "#ffffff",
+                        "on-primary-fixed-variant": "#380085",
+                        "tertiary-fixed": "#ff9f5a",
+                        "outline": "#777575",
+                        "outline-variant": "#494847",
+                        "primary-container": "#b08dff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(38, 38, 38, 0.7);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(73, 72, 71, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(188,158,255,0.08)] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-purple-400 active:scale-95 duration-200 cursor-pointer">menu</span>
+<h1 class="font-manrope font-bold text-2xl tracking-tight text-on-surface">Today</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral-400 hover:text-purple-300 transition-colors cursor-pointer">bar_chart</span>
+<span class="material-symbols-outlined text-neutral-400 hover:text-purple-300 transition-colors cursor-pointer">visibility_off</span>
+<span class="material-symbols-outlined text-purple-400 active:scale-95 duration-200 cursor-pointer">settings</span>
+</div>
+</header>
+<main class="pt-24 px-6 space-y-8 max-w-2xl mx-auto">
+<!-- Date Subheader & Weekly Progress -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">February</p>
+<h2 class="font-headline font-extrabold text-4xl">18th, <span class="text-primary">Tue</span></h2>
+</div>
+<div class="text-right">
+<p class="font-label text-xs font-bold text-secondary">3/8 TASKS</p>
+<div class="h-1.5 w-24 bg-surface-variant rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-secondary w-[37.5%] shadow-[0_0_10px_rgba(82,253,152,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Weekly Indicators -->
+<div class="flex justify-between items-center py-2">
+<!-- Mon (Complete) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border-2 border-secondary flex items-center justify-center text-secondary shadow-[0_0_15px_rgba(82,253,152,0.15)] bg-secondary/5">
+<span class="font-label text-[10px] font-bold">MON</span>
+</div>
+</div>
+<!-- Tue (Active/Today) -->
+<div class="flex flex-col items-center gap-2">
+<div class="relative w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center text-primary shadow-[0_0_20px_rgba(188,158,255,0.2)] bg-primary/10">
+<span class="font-label text-[10px] font-bold">TUE</span>
+<div class="absolute -bottom-1 w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Wed-Sun (Remaining) -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="font-label text-[10px]">WED</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="font-label text-[10px]">THU</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="font-label text-[10px]">FRI</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="font-label text-[10px]">SAT</span>
+</div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant">
+<span class="font-label text-[10px]">SUN</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Chips -->
+<section class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="flex-none px-6 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary font-label text-xs font-bold tracking-wider">
+                Art
+            </button>
+<button class="flex-none px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs tracking-wider hover:bg-surface-variant transition-colors">
+                Work
+            </button>
+<button class="flex-none px-6 py-2 rounded-full border border-outline-variant/30 text-on-surface-variant font-label text-xs tracking-wider hover:bg-surface-variant transition-colors">
+                Health
+            </button>
+</section>
+<!-- Time Tracker Cards -->
+<section class="space-y-6">
+<!-- Habit Card: Side Project -->
+<div class="glass-card rounded-[1.5rem] p-6 shadow-[0_10px_30px_-5px_rgba(188,158,255,0.08)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#bc9eff]"></span>
+<h3 class="font-headline font-bold text-xl text-primary">Side Project</h3>
+</div>
+<div class="flex gap-3 items-center">
+<span class="font-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">local_fire_department</span> 12 DAY STREAK
+                            </span>
+<span class="font-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 14.5H TOTAL
+                            </span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary active:scale-90 transition-transform shadow-[0_0_20px_rgba(188,158,255,0.4)]">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Grid Data -->
+<div class="space-y-1">
+<!-- Grid Header -->
+<div class="grid grid-cols-5 text-center mb-2">
+<div class="col-span-1"></div>
+<span class="font-label text-[9px] text-on-surface-variant uppercase tracking-tighter">Wk 01</span>
+<span class="font-label text-[9px] text-on-surface-variant uppercase tracking-tighter">Wk 02</span>
+<span class="font-label text-[9px] text-on-surface-variant uppercase tracking-tighter">Wk 03</span>
+<span class="font-label text-[9px] text-primary font-bold uppercase tracking-tighter">Today</span>
+</div>
+<!-- Grid Rows -->
+<div class="grid grid-cols-5 items-center py-1">
+<span class="font-label text-[10px] text-on-surface-variant text-left">Mon</span>
+<div class="text-center font-label text-sm text-on-surface">1.25</div>
+<div class="text-center font-label text-sm text-on-surface">2.00</div>
+<div class="text-center font-label text-sm text-on-surface">0.50</div>
+<div class="text-center font-label text-sm text-primary font-bold">1.50</div>
+</div>
+<div class="grid grid-cols-5 items-center py-1 border-t border-white/5">
+<span class="font-label text-[10px] text-on-surface-variant text-left">Tue</span>
+<div class="text-center font-label text-sm text-on-surface">0.75</div>
+<div class="text-center font-label text-sm text-on-surface">1.50</div>
+<div class="text-center font-label text-sm text-on-surface">2.25</div>
+<div class="text-center font-label text-sm text-primary font-bold">3.00</div>
+</div>
+<div class="grid grid-cols-5 items-center py-1 border-t border-white/5">
+<span class="font-label text-[10px] text-on-surface-variant text-left">Wed</span>
+<div class="text-center font-label text-sm text-on-surface">2.00</div>
+<div class="text-center font-label text-sm text-on-surface">--</div>
+<div class="text-center font-label text-sm text-on-surface">1.00</div>
+<div class="text-center font-label text-sm text-primary/40">--</div>
+</div>
+<!-- Total Row -->
+<div class="grid grid-cols-5 items-center pt-3 border-t border-primary/20 mt-2">
+<span class="font-label text-[10px] font-bold text-primary text-left">TOTAL</span>
+<div class="text-center font-label text-xs font-bold text-on-surface">4.0h</div>
+<div class="text-center font-label text-xs font-bold text-on-surface">3.5h</div>
+<div class="text-center font-label text-xs font-bold text-on-surface">3.7h</div>
+<div class="text-center font-label text-xs font-bold text-primary">4.5h</div>
+</div>
+</div>
+</div>
+<!-- Habit Card: Learn Guitar -->
+<div class="glass-card rounded-[1.5rem] p-6 shadow-[0_10px_30px_-5px_rgba(82,253,152,0.08)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#52fd98]"></span>
+<h3 class="font-headline font-bold text-xl text-secondary">Learn Guitar</h3>
+</div>
+<div class="flex gap-3 items-center">
+<span class="font-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">local_fire_department</span> 5 DAY STREAK
+                            </span>
+<span class="font-label text-[10px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> 8.2H TOTAL
+                            </span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary active:scale-90 transition-transform">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-on-secondary active:scale-90 transition-transform shadow-[0_0_20px_rgba(82,253,152,0.4)]">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Grid Data (Compact Version) -->
+<div class="space-y-1">
+<div class="grid grid-cols-5 items-center py-1">
+<span class="font-label text-[10px] text-on-surface-variant text-left">Today</span>
+<div class="col-span-4 bg-surface-container-low rounded-full h-8 flex items-center px-4 justify-between border border-secondary/10">
+<span class="font-label text-xs text-on-surface-variant">Session Log</span>
+<span class="font-label text-sm font-bold text-secondary">0.75h</span>
+</div>
+</div>
+<div class="grid grid-cols-5 items-center pt-3 border-t border-secondary/20 mt-2">
+<span class="font-label text-[10px] font-bold text-secondary text-left">TOTAL</span>
+<div class="text-center font-label text-xs font-bold text-on-surface">1.5h</div>
+<div class="text-center font-label text-xs font-bold text-on-surface">1.2h</div>
+<div class="text-center font-label text-xs font-bold text-on-surface">2.1h</div>
+<div class="text-center font-label text-xs font-bold text-secondary">3.4h</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Activity Visualization -->
+<section class="glass-card rounded-[1.5rem] p-6">
+<h4 class="font-headline font-bold text-sm mb-4">Activity Density</h4>
+<div class="flex gap-1 justify-between">
+<!-- Simple 7-day sparkline style heatmap simulated with divs -->
+<div class="flex-1 space-y-1" v-for="i in 7">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40" style="height: 60%;"></div>
+<div class="absolute bottom-0 w-full bg-secondary/30" style="height: 25%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">M</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40" style="height: 40%;"></div>
+<div class="absolute bottom-0 w-full bg-secondary/30" style="height: 45%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">T</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-primary/40" style="height: 80%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">W</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-surface-variant/40" style="height: 10%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">T</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden border-2 border-primary/30">
+<div class="absolute bottom-0 w-full bg-primary/40" style="height: 95%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-primary font-bold">F</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-secondary/30" style="height: 30%;"></div>
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">S</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="h-16 w-full bg-surface-container-highest rounded-lg relative overflow-hidden">
+</div>
+<span class="block text-center font-label text-[8px] text-on-surface-variant">S</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-neutral-950/80 backdrop-blur-2xl border-t border-white/5 shadow-[0_-10px_30px_-5px_rgba(188,158,255,0.12)] rounded-t-[2rem]">
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-200 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-space-grotesk text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-purple-400 font-bold bg-purple-500/10 rounded-full px-4 py-1 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">checklist</span>
+<span class="font-space-grotesk text-[10px] uppercase tracking-widest mt-1">Tasks</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-200 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-space-grotesk text-[10px] uppercase tracking-widest mt-1">Calendar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 hover:text-neutral-200 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-space-grotesk text-[10px] uppercase tracking-widest mt-1">Settings</span>
+</a>
+</nav>
+<!-- Floating Action Button (Supressed on details/tracking screens as per mandate, but logic-driven for dashboard) -->
+<!-- Not rendering FAB here as we are in a task-focused time tracking view with specific card actions -->
+</body></html>
