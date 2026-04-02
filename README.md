@@ -2,6 +2,21 @@
 
 A high-end offline habit tracking Flutter app with a neon-glass editorial design system.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="screenshots/1.png" width="250"/></td>
+    <td><img src="screenshots/2.png" width="250"/></td>
+    <td><img src="screenshots/3.png" width="250"/></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/4.png" width="250"/></td>
+    <td><img src="screenshots/5.png" width="250"/></td>
+    <td><img src="screenshots/6.png" width="250"/></td>
+  </tr>
+</table>
+
 ## Design System
 
 Based on the "Luminescent Pulse" creative direction, this app features:
