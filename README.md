@@ -6,14 +6,14 @@ A high-end offline habit tracking Flutter app with a neon-glass editorial design
 
 <table>
   <tr>
-    <td><img src="Screenshots/1.png" width="250"/></td>
-    <td><img src="Screenshots/2.png" width="250"/></td>
-    <td><img src="Screenshots/3.png" width="250"/></td>
+<img src="Screenshots/1.png" width="30%"/>
+<img src="Screenshots/2.png" width="30%"/>
+<img src="Screenshots/3.png" width="30%"/>
   </tr>
   <tr>
-    <td><img src="Screenshots/4.png" width="250"/></td>
-    <td><img src="Screenshots/5.png" width="250"/></td>
-    <td><img src="Screenshots/6.png" width="250"/></td>
+<img src="Screenshots/4.png" width="30%"/>
+<img src="Screenshots/5.png" width="30%"/>
+<img src="Screenshots/6.png" width="30%"/>
   </tr>
 </table>
 
